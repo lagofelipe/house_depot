@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :orders
+  resources :free_demos
   resources :stores
   resources :users
   resources :items

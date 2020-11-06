@@ -1,0 +1,2 @@
+class FreeDemosController < ApplicationController
+end
