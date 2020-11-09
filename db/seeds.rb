@@ -5,10 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-<<<<<<< HEAD
-
-=======
->>>>>>> f974866378b10a82962e119d88d734e45f892fd7
 User.destroy_all
 Item.destroy_all
 Store.destroy_all
@@ -53,17 +49,10 @@ s12 = Store.create(location: "203 - Lake Austin at Champions")
 s13 = Store.create(location: "278 - Geogetown Cimarron Hills")
 s14 = Store.create(location: "311 - Liberty Hill HWY 29")
 s15 = Store.create(location: "489 - San Marcos IH 35 S")
-<<<<<<< HEAD
 s16 = Store.create(location: "202 - Waco Baylor Campus")
 
 
 i1 = Item.create(item_name: 'French Door Refrigerator in Stainless Steel', price: 1298)
-=======
-s16 = Store.create(location: "202 - Waco  Baylor Campus")
-
-
-i1 = Item.create(item_name: 'French Door Refrigerator in Stainless Steel', price: 1298) 
->>>>>>> f974866378b10a82962e119d88d734e45f892fd7
 i2 = Item.create(item_name: 'Sinclair Natural Polyester Office Chair', price: 180)
 i3 = Item.create(item_name: 'Accent Cabinet', price: 161)
 i4 = Item.create(item_name: '4-in-1 Select Drive Gas Walk Behind Self Propelled Lawn Mower with Blade Stop System', price: 117)
