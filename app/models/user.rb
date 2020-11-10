@@ -10,10 +10,23 @@ class User < ApplicationRecord
     end
 
     def orders_by_date
-     self.orders.sort_by{|orders|orders.created_at}.reverse
+     target = self.orders.sort_by{|orders|orders.created_at}.reverse
+     target[0].order_date
     end
     
+   def total_spent
+    self.order_items.sum{|oi| oi.item.price}
+    end
+   
+   
+    def favorite_store
+#    store = (self.stores.group_by{|store|store.order}).max_by{|k,v|v.count}
+#    store[0]
+   end
 
+   def favorite_store_name
+
+   end
 
 
 
