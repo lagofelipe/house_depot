@@ -8,5 +8,5 @@
   <br/>
   <br/>
 
-  <%= f.submit 'Add to Cart' order_path(@order)%>
+  <%= button_to 'Add to Cart', orders_path(@order.id)%>
 <% end %>
