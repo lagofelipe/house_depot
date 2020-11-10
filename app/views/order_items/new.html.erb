@@ -1,9 +1,0 @@
-<h2>Place a new order<h2>
-<%= form_for @order_item do |f| %>
-  <%= f.label :item_id%>
- 
- <div> <%= f.collection_select :item_id, Item.all, :id, :item_name  %><br /><br /></div>
-
- 
- <%= f.submit "Place Order"%>
-<% end %>
