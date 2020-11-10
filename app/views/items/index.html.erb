@@ -5,12 +5,11 @@
 
 <div> <%=image_tag(item.img_url)%></div>
 
- <li><%=item.item_name%> 
- - 
- $<%=item.price%>: Add to cart
- </a>
- <br></br>
- </li>
-<%end%>
+ <%=item.item_name%> - $<%=item.price%> 
+ : <%=link_to 'Product page', item_path(item.id) %>
+ 
+ <%end%>
+ 
+
 
 </ul>

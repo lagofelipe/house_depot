@@ -1,0 +1,9 @@
+<h1><%=@item.item_name%><h1>
+
+<div> <%=image_tag(@item.img_url)%></div>
+<%= form_for @item do |f| %>
+    <%= f.submit "Add to Cart" %>
+<% end %>
+<%# 
+if item.most_popular_item
+<%puts @item.item_name is a bestseller%>
