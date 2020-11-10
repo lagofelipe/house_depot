@@ -1,5 +1,4 @@
-<h2>Place a new order<h2>
-
+<h2>Edit your order<h2>
 
 <%= form_for @order do |f| %>
 
@@ -9,5 +8,5 @@
   <br/>
   <br/>
 
-  <%= f.submit link_to 'Add to Cart', order_path(@order) %>
+  <%= f.submit 'Add to Cart' order_path(@order)%>
 <% end %>
