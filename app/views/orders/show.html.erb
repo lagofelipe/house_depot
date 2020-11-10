@@ -1,6 +1,9 @@
 <h2>Your Cart</h2>
 
-<%@order.items.each do |i|%>
-<div><%=i.item_name%></div>
+<%@order.items.each do |order_item|%>
+<div><%=link_to order_item.item_name, item_path(order_item.id)%></div>
 <%end%>
+<br></br>
+<div><%= button_to 'Continue Shopping', items_path%> </div>
+<div><%=button_to 'Edit my order', edit_order_path(@order.id)%></div>
 
