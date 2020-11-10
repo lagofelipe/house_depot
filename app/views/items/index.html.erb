@@ -2,12 +2,14 @@
 <ul>
 
 <%@items.each do |item|%>
-<li>
+
 <div> <%=image_tag(item.img_url)%></div>
- <%=item.item_name%> 
+
+ <li><%=item.item_name%> 
  - 
- $<%=item.price%>
+ $<%=item.price%>: Add to cart
  </a>
+ <br></br>
  </li>
 <%end%>
 
