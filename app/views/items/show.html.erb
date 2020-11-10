@@ -1,8 +1,10 @@
 <h1><%=@item.item_name%><h1>
 
 <div> <%=image_tag(@item.img_url)%></div>
+price: $<%=@item.price%> 
 <%= form_for @item do |f| %>
-    <%= f.submit "Add to Cart" %>
+    <%# <%= f.submit "Add to Cart" %>
+    <%= button_to 'Add to Cart', order_items_path %></p>
 <% end %>
 <%# 
 if item.most_popular_item
