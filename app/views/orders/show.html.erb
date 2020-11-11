@@ -1,10 +1,10 @@
-<h2>Your Cart</h2>
+<h2>Order Detail Page</h2>
 
 <%@order.items.each do |order_item|%>
 <div><%=link_to order_item.item_name, item_path(order_item.id)%></div>
 <%end%>
 <br></br>
-<div><%= button_to 'Continue Shopping', items_path%> </div>
+<div><%= button_to 'Main Menu', root_path, method: :get %> </div>
 <div><%=button_to 'Edit my order',  edit_order_path(@order.id), method: :get %></div>
 
 <%# edit_order_path(@order.id) %>

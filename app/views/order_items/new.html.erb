@@ -1,0 +1,32 @@
+<h2>new order<h2>
+
+
+<%= form_with model: @order, :url => url_for(:controller => 'order_items', :action => 'create') do |f| %>
+
+
+
+  
+  <h4><%= f.label "Choose your pickup location" %></h4>
+  <%= f.collection_select :store_id, Store.all, :id, :location%>
+  <br/>
+  <br/>
+ 
+ 
+  Select items to add <br></br>
+  <%= f.collection_select :item_ids, Item.all, :id, :item_name %>
+  <br/>
+  <br/>
+
+
+  <%= f.collection_select :item_ids, Item.all, :id, :item_name %>
+  <br/>
+  <br/>
+
+
+  <br/>
+  <br/>
+
+  <%= f.submit  'Place Order' %>
+<% end %>
+
+
