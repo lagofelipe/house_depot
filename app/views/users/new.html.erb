@@ -1,5 +1,6 @@
 
 <h1>New Customer Form </h1>
+<br> <%= button_to "Back To Main Menu", root_path, method: :get  %><br><hr><br>
 
 <% if flash[:errors]%>
  <% flash[:errors].each do |error|%>
@@ -11,4 +12,3 @@
 
  <%= render 'form' %>
 
-<br><br <%= button_to "Back To Main Menu", root_path, method: :get  %><br><hr>
