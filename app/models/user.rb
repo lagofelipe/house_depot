@@ -2,6 +2,9 @@ class User < ApplicationRecord
     has_many :orders
     has_many :order_items, through: :orders
     has_many :stores, through: :orders
+
+    has_secure_password
+
     validates :first_name, presence: true
     validates :last_name, presence: true
 
@@ -30,4 +33,3 @@ class User < ApplicationRecord
 
 
 
-end
