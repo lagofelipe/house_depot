@@ -1,11 +1,30 @@
 
+
 <%= form_for @order do |f| %>
 
+
+  <%= f.label "Your name" %>
+  <%= f.text_field :user_id %>
+  <br/>
+  <br/>
+  
+  <%= f.label "Choose your Location" %>
+  <%= f.collection_select :store_id, Store.all, :id, :location%>
+  <br/>
+  <br/>
+ 
  
   
   <%= f.collection_select :item_ids, Item.all, :id, :item_name %>
   <br/>
   <br/>
 
-  <%= f.submit 'Add to Cart'%>
+    <%= f.fields_for :items, @order.items.build do |items_fields| %>
+    <%= items_fields.label :item_name, "Item"%>
+    <%= items_fields.select :item_name %>
+  <% end %>
+  <br/>
+  <br/>
+
+  <%= f.submit  'Add to Cart' %>
 <% end %>
