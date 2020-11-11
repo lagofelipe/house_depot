@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
     def orders_by_date
      target = self.orders.sort_by{|orders|orders.created_at}.reverse
-     target[0].order_date
+     target[0]  #.order_date
     end
     
    def total_spent

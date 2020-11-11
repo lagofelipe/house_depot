@@ -1,0 +1,20 @@
+<h1>FREE Classes and Workshops -   The House Depot  </h1><hr>
+
+<img src="https://www.mysavings.com/img/link/large/105176.jpg" alt="House Depot Free Classes for families" />
+
+
+
+
+<br><h1> Please Select a store to view all available events: </h1>
+
+<h2>
+ <% @free_demos.each do |free_demo| %>
+  <li>
+ <%= link_to free_demo.store.location , free_demo_path(free_demo) %>
+  </li>
+ <% end %>
+</h2>
+
+
+
+<br><br> <%= button_to "Back To Main Menu", root_path, method: :get  %><br><hr>
