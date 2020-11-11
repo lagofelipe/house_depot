@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
 
 
 
+
   # def current_user
   #   @user = (User.find_by(id: session[:user_id]) || User.new)
   # end
@@ -21,6 +22,9 @@ class ApplicationController < ActionController::Base
     @user = User.find(session[:user_id])
     # session[:user_id] = @user.id
   end
+
+
+   
 
 end
 
