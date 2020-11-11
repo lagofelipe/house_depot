@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
   root 'application#welcome'
+  get '/home' => 'application#home'
   # get 'orders/:id' => "orders#shopping_cart", as: "cart"
   resources :order_items
   resources :orders

@@ -17,8 +17,9 @@ class OrdersController < ApplicationController
 
     def create
         @order = Order.new(order_params)
+        @order.user_id = session[:id]
         if @order.save
-        redirect_to order_path(@order.id)
+        redirect_to order_path(@order)
         else render :new
         end
     end
@@ -31,7 +32,7 @@ class OrdersController < ApplicationController
         @order = Order.find(params[:id])
         @order.update(order_params)
         if @order.save 
-            redirect_to order_path(@order.id)
+            redirect_to user_path(@user.id)
         else render :edit
         end
     end

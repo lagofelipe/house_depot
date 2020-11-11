@@ -1,17 +1,20 @@
 class SessionsController < ApplicationController
 
     def new
+      @user = User.new
     end
   
     def create
-      @user = User.find_by(first_name: params[:user][:first_name], last_name: params[:user][:last_name])
-      if session[:user_id] = @user.id
+      @user = User.find_by(username: params[:user][:username])
+      if @user && @user.authenticate(params[:user][:password])
+      session[:user_id] = @user.id
+      
         
-        redirect_to root_path
+        redirect_to home_path
       else 
-        flash[:errors] = "Records do not match"
         redirect_to login_path
       end
+      
       
     end
   
