@@ -1,0 +1,10 @@
+<h1>FREE event details - The House Depot </h1><br><hr>
+
+
+
+<h2>Store : <%= @free_demo.store.location %></h2>
+<h2>Event : <%= @free_demo.description %></h2>
+<h2>Date and Time: <%= @free_demo.date %></h2><br><hr>
+
+<%= button_to "Back To Main Menu", root_path, method: :get  %><br>
+<%= button_to "Return To Events Page ", free_demos_path, method: :get  %><br>
