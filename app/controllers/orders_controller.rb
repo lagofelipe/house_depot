@@ -7,6 +7,10 @@ class OrdersController < ApplicationController
         @order = Order.find(params[:id])
     end
 
+    # def shopping_cart
+    #     @order = @current_order
+    # end
+
     def new
         @order = Order.new
     end
