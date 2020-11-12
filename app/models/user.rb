@@ -28,14 +28,9 @@ class User < ApplicationRecord
    end
 
    def favorite_store_name
-
    end
-<<<<<<< HEAD
 
 end
 
-=======
-end
->>>>>>> 32b3026a87611273e122071962f4bfe06e765092
 
 
