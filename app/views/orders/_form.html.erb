@@ -35,6 +35,6 @@
 <% end %>
 
 <hr>
-<footer> Logged in as: <%= link_to @user.first_name, users_path(session[:id])%> 
+<footer> Logged in as: <%= link_to @user.first_name, users_path(@user.id)%> 
 <%= button_to "Logout", {controller: 'sessions', action: 'destroy'}, method: 'delete' %>
 </footer>

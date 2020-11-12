@@ -21,9 +21,11 @@ class User < ApplicationRecord
         end
     end
     
-   def total_spent
-    self.order_items.sum{|oi| oi.item.price}
-    end
+#    def total_spent
+#     self.order_items.sum{|oi| oi.item.price}
+#     end
+
+# <h2> Total Spent : $<%=@user.total_spent %>.00</h2><br><br>
    
    
     def favorite_store
