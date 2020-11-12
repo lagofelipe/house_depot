@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
+  get '/logout' => 'sessions#destroy'
   root 'application#welcome'
   get '/home' => 'application#home'
   # get 'orders/:id' => "orders#shopping_cart", as: "cart"
