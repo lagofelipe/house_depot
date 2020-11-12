@@ -23,7 +23,8 @@ class OrdersController < ApplicationController
         
         if @order.save
         redirect_to user_path(@user.id)
-        else redirect_to new_orders_path
+        else 
+            redirect_to new_orders_path
         end
     end
 
