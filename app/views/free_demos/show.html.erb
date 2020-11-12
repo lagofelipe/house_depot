@@ -6,5 +6,5 @@
 <h2>Event : <%= @free_demo.description %></h2>
 <h2>Date and Time: <%= @free_demo.date %></h2><br><hr>
 
-<%= button_to "Back To Main Menu", root_path, method: :get  %><br>
+<%= button_to "Back To Main Menu", home_path(session[:user_id]), method: :get  %><br>
 <%= button_to "Return To Events Page ", free_demos_path, method: :get  %><br>
