@@ -20,7 +20,9 @@ class ApplicationController < ActionController::Base
 
   def home
     @user = User.find(session[:user_id])
-    # session[:user_id] = @user.id
+    @user.username = session[:username]
+    
+  
   end
 
 
