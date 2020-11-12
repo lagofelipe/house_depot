@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
     def create
         @item = Item.create(item_params)
         @item.save
-        redirect_to 
+        
     end
 
     def edit
@@ -25,12 +25,9 @@ class ItemsController < ApplicationController
 
     def update
         @item = Item.find(params[:id])
-        @item.update(item_params)
-        if @item.save
-            redirect_to orders_path
-        end
-       
         
+        redirect_to new_order_path(@item.id)
+    
     end
 
     

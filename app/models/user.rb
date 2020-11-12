@@ -7,14 +7,18 @@ class User < ApplicationRecord
 
     validates :first_name, presence: true
     validates :last_name, presence: true
+    validates :username, presence: true
 
     def full_name
      self.first_name + " " + self.last_name 
     end
 
     def orders_by_date
-     target = self.orders.sort_by{|orders|orders.created_at}.reverse
-     target[0]  #.order_date
+        if self.orders.exists?
+        target = self.orders.sort_by{|orders|orders.created_at}.reverse
+        target[0]  #.order_date
+        else return nil
+        end
     end
     
    def total_spent
