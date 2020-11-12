@@ -22,7 +22,7 @@ def create
     session[:user_id] = @user.id
 
   
-  redirect_to root_path
+  redirect_to home_path
  else 
     flash[:errors] = @user.errors.full_messages
     
