@@ -36,6 +36,7 @@ class User < ApplicationRecord
    def favorite_store_name
    end
 
+   
 end
 
 

@@ -5,15 +5,19 @@
 <h2>Today's Recommended Products for You</h2>
 <ul>
 
+
 <%@items.each do |item|%>
 
 <div> <%=image_tag(item.img_url)%></div>
 
  <%=item.item_name%> - $<%=item.price%>.00
  : <%=link_to 'See more', item_path(item.id) %>
- 
+ <%if popular_item?(item) %>
+  --<%= popular_item?(item)%>!
+    <%end%>
  <%end%>
  
 
 
 </ul>
+

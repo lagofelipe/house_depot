@@ -3,22 +3,25 @@
 <hr>
 </header>
 
-<h2>Edit your order<h2>
+<h2>Edit your order</h2>
+
 
 <%= form_with model: @order, :url => url_for(:controller => 'orders', :action => 'update') do |f| %>
   
   <%= f.hidden_field :user_id, value: @user.id %> 
 
-  <h4><%= f.label "Select items:" %></h4>
+  <p><%= f.label "Select items:" %>
       <%= f.collection_check_boxes(:item_ids, Item.all, :id, :item_name) do |b|%>
         <div class="collection-check-box">
          <%= b.check_box %>
          <%= b.label %>
         </div>
       <%end%>
+      </p>
   
   <br/>
-  <br/>
+ 
+ 
 
   <h4><%= f.label "Change pickup date?" %></h4>
       <%= f.date_select :order_date, start_year: Time.now.year, end_year: 2020 %>
