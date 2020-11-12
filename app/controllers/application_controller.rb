@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
   def home
     @user = User.find(session[:user_id])
     @user.username = session[:username]
+    @items = Item.all
     
   
   end
