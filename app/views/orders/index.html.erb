@@ -1,21 +1,9 @@
+<h1>Orders Index </h1>
 
-<h4> Shopping Cart </h4>
-
-
-
-
-
-
-
-
-
-
-<h5>Your order history</h5>
-<ul>
-<%@orders.each do |o|%>
-<li><%=o.order_date%>, <%= link_to 'bought', order_path(o.id)%>
-<%o.items.each do |i|%>
-<%=i.item_name%> </li>
-    <%end%>
-<%end%>
-</ul>
+<h2>
+    <% @orders.each do |order|order %>
+        <li>
+            <%= link_to order, order_path(order) %>
+        </li>
+    <% end %>
+</h2>

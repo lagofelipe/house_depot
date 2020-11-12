@@ -13,17 +13,15 @@ class User < ApplicationRecord
      self.first_name + " " + self.last_name 
     end
 
-    def orders_by_date
-        if self.orders.exists?
-        target = self.orders.sort_by{|orders|orders.created_at}.reverse
-        target[0]  #.order_date
-        else return nil
-        end
+    def total_orders
+   self.orders.count
     end
-    
-#    def total_spent
-#     self.order_items.sum{|oi| oi.item.price}
-#     end
+
+    def orders_by_date
+     @user.orders.each {|order|}
+
+end
+  #
 
 # <h2> Total Spent : $<%=@user.total_spent %>.00</h2><br><br>
    
