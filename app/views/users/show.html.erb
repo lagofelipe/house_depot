@@ -8,7 +8,7 @@
 
 <br><br><hr> 
 <%= button_to "Edit Customer Details", edit_user_path(@user), method: :get %><br>
-<%= button_to "Delete this Profile", @user, method: :delete %>
+<%= button_to "Delete my Account", @user, method: :delete, :confirm => 'Are you sure?' %>
 
 
 <br> <%= button_to "Back To Main Menu", home_path, method: :get  %><br><hr>
