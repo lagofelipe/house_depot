@@ -6,10 +6,11 @@
 <h1><%=@item.item_name%><h1>
 
 <div> <%=image_tag(@item.img_url)%></div>
-price: $<%=@item.price%>.00
+<h3>price: $<%=@item.price%>.00</h3>
 <%= form_for @item do |f| %>
     <%# <%= f.submit "Add to Cart" %>
     <%= button_to 'Add to Cart', new_order_path(@item.id), method: :get%>
+     <%= button_to 'Back to Browsing', items_path, method: :get%>
 <% end %>
 <%# 
 if item.most_popular_item
