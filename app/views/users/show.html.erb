@@ -8,7 +8,7 @@
 <ul>
 <%@user.orders.each do |o|%>
 <%o.items.each do |i|%>
-<li><%=i.item_name%> - price: $<%=i.price%> - <%=button_to 'Edit order', edit_order_path(o.id), method: :get%></li>
+<li><%=i.item_name%> - price: $<%=i.price%> <%=button_to 'Edit order', edit_order_path(o.id), method: :get%></li>
     <%end%>
 <%end%>
 

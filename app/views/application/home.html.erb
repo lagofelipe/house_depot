@@ -16,12 +16,21 @@
 <br>
 <%= button_to "FREE events ", free_demos_path, method: :get  %><br>
 
-
-
-
-
 <hr>
 
+<%@items.each do |item|%>
+<%if popular_item?(item) %>
+Checkout the <%= popular_item?(item)%> Product of the Day!
+<br></br>
+<div> <%=image_tag(item.img_url)%></div>
+
+ <%=item.item_name%> -$<%=item.price%>.00
+ <h4><%=link_to 'See more', item_path(item.id) %></h4>
+ 
+    <%end%>
+ <%end%>
+ <br>
+<hr>
 <h4><footer> Hi, <%= @user.first_name%></h4>
 <%= button_to "Logout", logout_path(@user), method: 'get' %>
 </footer>
