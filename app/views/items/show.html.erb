@@ -4,7 +4,7 @@
 price: $<%=@item.price%>.00
 <%= form_for @item do |f| %>
     <%# <%= f.submit "Add to Cart" %>
-    <%= button_to 'Add to Cart', new_order_path(@item.id), method: :post%>
+    <%= button_to 'Add to Cart', new_order_path(@item.id), method: :get%>
 <% end %>
 <%# 
 if item.most_popular_item

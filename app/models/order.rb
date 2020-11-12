@@ -15,4 +15,12 @@ class Order < ApplicationRecord
         end
     end
 
+
+    def order_total
+        @item = Item.find(params[:id])
+        @order = Order.find(params[:id])
+        @item.price
+    end
+        
+
 end

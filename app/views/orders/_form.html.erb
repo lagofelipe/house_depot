@@ -2,19 +2,23 @@
 
 <%= form_with model: @order_items, :url => url_for(:controller => 'orders', :action => 'create') do |f| %>
   
-  <h4><%= f.label "Select items:" %></h4>
-  <%= f.collection_check_boxes :item_ids, Item.all, :id, :item_name %>
-  <br/>
-  <br/>
 
 
+  <%= f.hidden_field :user_id, value: @user.id %> 
 
-
+<h4><%= f.label "Select items:" %></h4>
+  <%= f.collection_check_boxes(:item_ids, Item.all, :id, :item_name) do |b|%>
+   <div class="collection-check-box">
+    <%= b.check_box %>
+    <%= b.label %>
+  </div>
+  <%end%>
+  
   <br/>
   <br/>
 
   <h4><%= f.label "When would you like to pickup?" %></h4>
-  <%= f.date_select :order_date, start_year: Time.now.year, end_year: 2020%>
+  <%= f.date_select :order_date, start_year: Time.now.year, end_year: 2020 %>
   <br/>
   <br/>
   
@@ -31,6 +35,6 @@
 <% end %>
 
 <hr>
-<footer> Logged in as: <%= link_to session[:first_name], users_path(session[:id])%> 
+<footer> Logged in as: <%= link_to @user.first_name, users_path(session[:id])%> 
 <%= button_to "Logout", {controller: 'sessions', action: 'destroy'}, method: 'delete' %>
 </footer>

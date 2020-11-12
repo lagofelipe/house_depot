@@ -1,3 +1,8 @@
+<header>
+<div><%=button_to 'Main Menu', home_path, method: :get %> 
+<hr>
+</header>
+
 <h2>Edit your order<h2>
 <%# <%= render 'form', order: Order.edit %>
 
@@ -8,8 +13,10 @@
   <li><%=item.item_name%></li> - <%= button_to 'Delete'%>
   <%end%>
   </ul>
-  <h5><%=f.label 'Add item?'%><h5>
-  <%= f.collection_check_boxes :item_ids, Item.all, :id, :item_name %>
+ <h4><%= f.label "Select items:" %></h4>
+  <%= f.collection_check_boxes(:item_ids, Item.all, :id, :item_name) do |b|%>
+   <%=b.label(class: "checkbox-inline") { b.check_box + b.text }%>
+  <%end%>
   <br/>
   <br/>
 

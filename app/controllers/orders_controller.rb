@@ -13,14 +13,17 @@ class OrdersController < ApplicationController
 
     def new
         @order = Order.new
+        @user = User.find(session[:user_id])
     end
 
     def create
+        @user = User.find(session[:user_id])
+        
         @order = Order.new(order_params)
-        @order.user_id = session[:id]
+        
         if @order.save
-        redirect_to order_path(@order)
-        else render :new
+        redirect_to user_path(@user.id)
+        else redirect_to new_orders_path
         end
     end
 
@@ -38,6 +41,8 @@ class OrdersController < ApplicationController
     end
     private
     def order_params
-        params.require(:order).permit(:order_date, :store_id, :user_id, item_ids:[], items_attributes: [:item_name])
+        params.require(:order).permit(:order_date, :store_id, :user_id, item_ids:[])
     end
 end
+
+# 
