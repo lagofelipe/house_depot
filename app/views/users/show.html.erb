@@ -1,38 +1,32 @@
-<h1>  <%= @user.full_name %>'s House Depot Profile</h1><hr>
+<h1>Customer Profile for: <%= @user.full_name %> </h1><br><hr>
+
+
+ <h2><%= @user.created_at.strftime("Customer since: %B %d, %Y")  %>
+
+ <h2> Total Lifetime Orders: <%=  @user.total_orders %></h2>
 
 
 
 
- <h2> Order History by Date :</h2> 
- <li><% @user.orders_by_date %>
+
+ <h2> View recent Orders :</h2> 
+ <li> <%=@user.orders_by_date %></li>
 
 
-<h5>Your order history</h5>
-<ul>
-<%@user.orders.each do |o|%>
-<li><%=o.order_date%>, <%= link_to o.items, order_path(o.id)%>
-<%o.items.each do |i|%>
-<%=i.item_name%> </li>
-    <%end%>
-<%end%>
-</ul>
 
- </li>
 
 
 <br><br><hr> 
-Hi, <%= @user.first_name%>, what would you like to do today?
-<br></br>
+
+
+<br>
 <%= button_to "Edit Customer Details", edit_user_path(@user), method: :get %><br>
-<%= button_to "Delete my Account", @user, method: :delete, :confirm => 'Are you sure?' %>
+<%= button_to "Delete my Account", @user, method: :delete, :confirm => 'Are you sure?' %><br>
 
 
-<br> <%= button_to "Logout", logout_path(@user), method: 'get' %><hr>
-
-<footer> 
 
 <%= button_to "Back To Main Menu", home_path, method: :get  %><br>
-</footer>
 
-
-
+<hr>
+<h3>Logged in as: <%= @user.full_name%></h3>
+<br><%= button_to "Logout", logout_path(@user), method: 'get' %>
