@@ -4,21 +4,36 @@
 </header>
 
 <h2>Edit your order<h2>
-<%# <%= render 'form', order: Order.edit %>
 
-<%= form_for @order do |f| %>
+<%= form_with model: @order, :url => url_for(:controller => 'orders', :action => 'update') do |f| %>
+  
+  <%= f.hidden_field :user_id, value: @user.id %> 
 
- <ul>
-  <%@order.items.each do |item|%>
-  <li><%=item.item_name%></li> - <%= button_to 'Delete'%>
-  <%end%>
-  </ul>
- <h4><%= f.label "Select items:" %></h4>
-  <%= f.collection_check_boxes(:item_ids, Item.all, :id, :item_name) do |b|%>
-   <%=b.label(class: "checkbox-inline") { b.check_box + b.text }%>
-  <%end%>
+  <h4><%= f.label "Select items:" %></h4>
+      <%= f.collection_check_boxes(:item_ids, Item.all, :id, :item_name) do |b|%>
+        <div class="collection-check-box">
+         <%= b.check_box %>
+         <%= b.label %>
+        </div>
+      <%end%>
+  
   <br/>
   <br/>
 
-  <%= button_to 'Back to order', new_order_path(@order.id), method: :post%>
-<% end %>
+  <h4><%= f.label "Change pickup date?" %></h4>
+      <%= f.date_select :order_date, start_year: Time.now.year, end_year: 2020 %>
+      <br/> <br/>
+  
+  <h4><%= f.label "Change your pickup location?" %></h4>
+      <%= f.collection_select :store_id, Store.all, :id, :location%>
+      <br/><br/>
+ 
+      <%= f.submit  'Update Order' %>
+      <% end %>
+
+      <%=button_to 'Delete Order', {controller: 'orders', action: 'destroy'}, method: 'delete'%>
+
+<hr>
+<footer> Logged in as: <%= link_to @user.first_name, user_path(@user.id)%> 
+<%= button_to "Logout", {controller: 'sessions', action: 'destroy'}, method: 'delete' %>
+</footer>

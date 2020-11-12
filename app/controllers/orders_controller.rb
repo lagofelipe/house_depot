@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
 
     def new
         @order = Order.new
+
         @user = User.find(session[:user_id])
     end
 
@@ -29,15 +30,25 @@ class OrdersController < ApplicationController
 
     def edit
         @order = Order.find(params[:id])
+        @user = User.find(session[:user_id])
+       
     end
 
     def update
+        @user = User.find(session[:user_id])
         @order = Order.find(params[:id])
         @order.update(order_params)
         if @order.save 
             redirect_to user_path(@user.id)
-        else render :edit
+        else redirect_to edit_order_path(@user.id)
         end
+    end
+
+    def destroy
+        @user = User.find(session[:user_id])
+        @order = Order.find(params[:id])
+        @order.delete
+        redirect_to user_path(@user.id)
     end
     private
     def order_params

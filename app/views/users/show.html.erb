@@ -10,14 +10,14 @@
 <h5>Your order history</h5>
 <ul>
 <%@user.orders.each do |o|%>
-<li><%=o.order_date%>, <%= link_to o.items, order_path(o.id)%>
 <%o.items.each do |i|%>
-<%=i.item_name%> </li>
+<li><%=i.item_name%> - price: $<%=i.price%> - <%=button_to 'Edit order', edit_order_path(o.id), method: :get%></li>
     <%end%>
 <%end%>
-</ul>
+
 
  </li>
+ </ul>
 
 
 <br><br><hr> 
