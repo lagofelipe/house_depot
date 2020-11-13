@@ -35,7 +35,9 @@ Order Total: $<%=@order.total%>
       <% end %>
 
       <%=button_to 'Delete Order', {controller: 'orders', action: 'destroy'}, method: 'delete'%>
+
       <%= button_to 'Back to my Account Page', user_path(@user.id), method: :get%>
+
 
 <hr>
 <footer> Logged in as: <%= link_to @user.first_name, user_path(@user.id)%> 
