@@ -8,7 +8,7 @@ end
 
 def show
  @user = User.find(params[:id])
- @orders = self.orders
+ 
 end
 
 def new

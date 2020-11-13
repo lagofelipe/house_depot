@@ -10,18 +10,16 @@
 <h5>Your order history</h5>
 <ul>
 <%@user.orders.each do |o|%>
+
 <%o.items.each do |i|%>
 <li><%=i.item_name%> - price: $<%=i.price%> <%=button_to 'Edit order', edit_order_path(o.id), method: :get%></li>
+   
     <%end%>
 <%end%>
 
 
  </li>
  </ul>
-
-
- <h2> View recent Orders :</h2> 
- <li> <%=@user.orders_by_date %></li>
 
 
 

@@ -43,6 +43,16 @@ class Order < ApplicationRecord
          bestseller = Item.find_by(item_name: most_popular_item[0])
          bestseller
     end
+
+    def total
+        total = 0
+        self.items.each do |item|
+            total +=item.price
+        end
+        total
+
+    end
+            
     
 
 end
