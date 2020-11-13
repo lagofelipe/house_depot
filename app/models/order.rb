@@ -52,6 +52,11 @@ class Order < ApplicationRecord
         total
 
     end
+
+    # def store
+        
+    #     store.location
+    # end
             
     
 

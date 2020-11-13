@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
         @order = Order.new(order_params)
         
         if @order.save
-        redirect_to user_path(@user.id)
+        redirect_to order_path(@order.id)
         else 
             redirect_to new_orders_path
         end
@@ -40,7 +40,7 @@ class OrdersController < ApplicationController
         @order = Order.find(params[:id])
         @order.update(order_params)
         if @order.save 
-            redirect_to user_path(@user.id)
+            redirect_to order_path(@order.id)
         else redirect_to edit_order_path(@user.id)
         end
     end
