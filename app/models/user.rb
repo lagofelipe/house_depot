@@ -18,24 +18,29 @@ class User < ApplicationRecord
     end
 
     def orders_by_date
-     @user.orders.each {|order|}
-
-end
+     #@user.orders.each {|order|}
+    end
   #
 
-# <h2> Total Spent : $<%=@user.total_spent %>.00</h2><br><br>
-   
-   
-    def favorite_store
-#    store = (self.stores.group_by{|store|store.order}).max_by{|k,v|v.count}
-#    store[0]
-   end
-
-   def favorite_store_name
-   end
 
    
-end
+   
+    def favorite_helper
+   pointer = self.orders.group_by{|o|o.store}
+   fav = pointer.max{|k,v|v.count}
+   fav
+   end
+
+   def favorite_store
+    self.favorite_helper[0].location
+   end
+
+   def last_activity 
+    self.favorite_helper[1][0].created_at.strftime(" %B %d, %Y")
+   end
+
+
+  end
 
 
 
